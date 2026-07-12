@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Based BERT Spam Detection System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🤖 AI Based BERT Spam Detection System</h1>
+
+        <form method="POST" id="spamForm">
+
+            <textarea
+                id="message"
+                name="message"
+                placeholder="Paste or type your SMS here..."
+                rows="6">{{ message }}</textarea>
+
+            <div class="buttons">
+
+                <button type="submit">
+                    Predict
+                </button>
+
+                <button
+                    type="button"
+                    class="clear-btn"
+                    onclick="clearForm()">
+
+                    Clear
+
+                </button>
+
+            </div>
+
+        </form>
+
+        {% if prediction %}
+
+        <div class="result" id="result">
+
+            <h2 style="color: {{ color }};">
+
+                {% if prediction == "SPAM" %}
+                    🚨 SPAM
+                {% else %}
+                    ✅ HAM
+                {% endif %}
+
+            </h2>
+
+            <h3>
+
+                📊 Confidence : {{ "%.2f"|format(confidence) }}%
+
+            </h3>
+
+        </div>
+
+        {% endif %}
+
+        <footer>
+
+            <hr>
+
+            <p>
+
+                Made by <strong>Arnav Aarush</strong>
+
+            </p>
+
+        </footer>
+
+    </div>
+
+    <script>
+
+        function clearForm(){
+
+            document.getElementById("message").value = "";
+
+            window.location.href = "/";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

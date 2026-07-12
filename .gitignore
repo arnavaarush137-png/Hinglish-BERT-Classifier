@@ -1,0 +1,52 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Python build files
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+
+# Flask
+instance/
+.flaskenv
+
+# Model files (keep if using Git LFS)
+# Uncomment the next line if you DON'T want to upload the model
+# Models/
+
+# Large model files
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Temporary files
+*.tmp
+*.bak
