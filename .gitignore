@@ -45,7 +45,6 @@ instance/
 *.pt
 *.pth
 *.ckpt
-*.safetensors
 
 # Temporary files
 *.tmp
