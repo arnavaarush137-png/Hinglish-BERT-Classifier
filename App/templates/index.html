@@ -2,15 +2,10 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>AI Based BERT Spam Detection System</title>
-
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
 </head>
 
 <body>
@@ -19,13 +14,14 @@
 
         <h1>🤖 AI Based BERT Spam Detection System</h1>
 
-        <form method="POST" id="spamForm">
+        <form action="/" method="POST">
 
             <textarea
                 id="message"
                 name="message"
+                rows="6"
                 placeholder="Paste or type your SMS here..."
-                rows="6">{{ message }}</textarea>
+                required>{{ message }}</textarea>
 
             <div class="buttons">
 
@@ -33,13 +29,10 @@
                     Predict
                 </button>
 
-                <button
-                    type="button"
-                    class="clear-btn"
-                    onclick="clearForm()">
-
+                <button type="button"
+                        class="clear-btn"
+                        onclick="clearForm()">
                     Clear
-
                 </button>
 
             </div>
@@ -48,7 +41,7 @@
 
         {% if prediction %}
 
-        <div class="result" id="result">
+        <div class="result">
 
             <h2 style="color: {{ color }};">
 
@@ -61,9 +54,7 @@
             </h2>
 
             <h3>
-
-                📊 Confidence : {{ "%.2f"|format(confidence) }}%
-
+                📊 Confidence: {{ "%.2f"|format(confidence) }}%
             </h3>
 
         </div>
@@ -71,29 +62,17 @@
         {% endif %}
 
         <footer>
-
             <hr>
-
-            <p>
-
-                Made by <strong>Arnav Aarush</strong>
-
-            </p>
-
+            <p>Made by <strong>Arnav Aarush</strong></p>
         </footer>
 
     </div>
 
     <script>
-
-        function clearForm(){
-
+        function clearForm() {
             document.getElementById("message").value = "";
-
-            window.location.href = "/";
-
+            document.getElementById("result")?.remove();
         }
-
     </script>
 
 </body>
